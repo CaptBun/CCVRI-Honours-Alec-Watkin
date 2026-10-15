@@ -1,4 +1,4 @@
-# CCRVI research code
+# CCVRI research code
 
 R code for *Development of a Multiomics Machine Learning Framework for Cardiovascular Risk Stratification in Liver Cirrhosis*.
 
