@@ -1,0 +1,36 @@
+# Restricted data and all generated patient-level or model outputs
+/data/raw/*
+!/data/raw/README.md
+/data/processed/*
+!/data/processed/README.md
+/outputs/*
+!/outputs/README.md
+/slide_exports/
+/config/local.R
+# Guard against legacy source data copied to the repository root
+*.csv
+*.xlsx
+*.xls
+*.rds
+*.RData
+*.Rdata
+*.rda
+*.parquet
+*.feather
+# RStudio state, local histories and credential files
+.Rproj.user/
+.Rhistory
+.RData
+.Ruserdata
+.Renviron
+.env
+.env.*
+# renv metadata is tracked, but installed libraries and caches are local
+/renv/library/
+/renv/staging/
+/renv/cache/
+# Derived archives belong outside the submitted source tree
+*.zip
+# Operating-system artifacts
+.DS_Store
+Thumbs.db

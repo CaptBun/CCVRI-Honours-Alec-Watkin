@@ -1,0 +1,23 @@
+name: Check R project structure
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    env:
+      RENV_CONFIG_AUTOLOADER_ENABLED: 'false'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: r-lib/actions/setup-r@v2
+        with:
+          r-version: 'release'
+          use-public-rspm: true
+      - name: Parse scripts and check runner plans without research data
+        run: Rscript tools/validate_project.R
+      - name: Check the source tree for restricted data and local state
+        run: Rscript tools/check_submission.R --all-files
+      - name: Validate the package lockfile JSON
+        run: python -c "import json; json.load(open('renv.lock', encoding='utf-8'))"

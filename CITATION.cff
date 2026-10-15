@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "Please cite this software and its associated thesis or publication when using this code."
+type: software
+title: "CCRVI: Multiomics cardiovascular risk stratification in liver cirrhosis"
+version: "0.2.0-rc.1"
+date-released: "2026-10-15"
+authors:
+  - family-names: Watkin
+    given-names: Alec
+abstract: "R research scripts for clinical and molecular modelling of recorded MACE status in adults with liver cirrhosis. Study data are not distributed."
+keywords:
+  - cirrhosis
+  - multiomics
+  - elastic net
+  - cardiovascular risk
+  - bioinformatics
