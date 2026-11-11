@@ -59,28 +59,9 @@ The default exhaustive main workflow trains **191 original plus 64 aspirin-exclu
 
 Supporting profiles require the relevant compiled cohort/results. `results` includes the candidate's interpretation refit. `figures` fits no new prediction model. MASLD-only retraining and SHAP are disabled by default; the named MASLD exploratory profile enables retraining. Optional SHAP requires separately installing fastshap and recording that addition in the lockfile.
 
-## Resume an existing private run
-
-With matching inputs, software, configuration and checkpoint folders, skip the completed original comparison:
-
-```bash
-Rscript run_pipeline.R main --from no-aspirin --execute
-```
-
-After both comparison result files are complete:
-
-```bash
-Rscript run_pipeline.R results --execute
-```
-
-Individual stages can be selected with `--stage NAME`. Each stage runs in a fresh R process; private logs and captured warning conditions are written under `outputs/logs/`. Changing tracked code, settings, inputs, software or the lockfile changes checkpoint provenance and may prevent reuse. Keep existing private working runs separate from the publication copy.
-
 ## Methods and validation
 
 See [docs/METHODS.md](docs/METHODS.md) for preprocessing, validation layers, feature screening, tuning and implementation qualifications. The 28-variable expanded clinical set becomes 27 after aspirin exclusion, before dummy encoding and fold-specific preprocessing. The exploratory 0–100 score is a cohort-relative percentile, not an absolute event probability.
 
 The tests check R syntax, workflow dependencies, warning logging and synthetic helper behaviour. Study-result reproduction requires authorised inputs and the corresponding saved results. CI runs structural and source-file checks without study data.
 
-## Submission and citation
-
-Review the intended Git index with `Rscript tools/check_submission.R`. Use `--all-files` only on a clean publication copy, and add `--release` to require the actual licence and lockfile. The licence remains to be agreed and added as `LICENSE`. Citation metadata are supplied in `CITATION.cff`.
